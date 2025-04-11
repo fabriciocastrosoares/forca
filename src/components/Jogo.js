@@ -1,5 +1,6 @@
- 
- export default function Jogo({palavras, palavraSorteada, setPalavraSorteada, setBotaoLetras}){  
+import forca from "../assets/forca0.png";
+
+export default function Jogo({palavras, palavraSorteada, setPalavraSorteada, setBotaoLetras, contemLetra}){  
 
   function sortearPalavra(){
    
@@ -19,14 +20,13 @@
     return(
         <div className="estado-jogo">
         <div className="imagem">
-            <img src="./assets/forca0.png" alt="imagens"/>
+            <img src={forca} alt="forca"/>
         </div>      
         <div className="iniciar-jogo">
           <button onClick={sortearPalavra} className="botao-iniciar">Escolher Palavra</button>
           <h1>
-          {palavraSorteada.map((_, index) => (
-            <span key={index}>_ </span>
-          ))}</h1>
+            {palavraSorteada.map((_ ) => "_ ")}
+          </h1>
         </div>
       </div>  
     )
