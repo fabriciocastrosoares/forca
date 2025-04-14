@@ -1,6 +1,5 @@
-import forca from "../assets/forca0.png";
 
-export default function Jogo({palavras, palavraSorteada, setPalavraSorteada, setBotaoLetras, contemLetra}){  
+export default function Jogo({palavras, palavraSorteada, setPalavraSorteada, setBotaoLetras, imagemForca}){  
 
   function sortearPalavra(){
    
@@ -8,7 +7,7 @@ export default function Jogo({palavras, palavraSorteada, setPalavraSorteada, set
 
     const palavraSorteada = [...palSort];
 
-    console.log(palavraSorteada);
+    console.log("palavra que foi sorteada:", palavraSorteada);
 
     
     setPalavraSorteada(palavraSorteada);  
@@ -17,17 +16,17 @@ export default function Jogo({palavras, palavraSorteada, setPalavraSorteada, set
   
  
   
-    return(
-        <div className="estado-jogo">
-        <div className="imagem">
-            <img src={forca} alt="forca"/>
-        </div>      
-        <div className="iniciar-jogo">
-          <button onClick={sortearPalavra} className="botao-iniciar">Escolher Palavra</button>
-          <h1>
-            {palavraSorteada.map((_ ) => "_ ")}
-          </h1>
-        </div>
-      </div>  
-    )
- } 
+  return(
+    <div className="estado-jogo">
+      <div className="imagem">
+          <img src={imagemForca} alt="forca"/>
+      </div>      
+      <div className="iniciar-jogo">
+        <button onClick={sortearPalavra} className="botao-iniciar">Escolher Palavra</button>
+        <h1>
+          {palavraSorteada.map((_ ) => "_ ")}
+        </h1>
+      </div>
+    </div>  
+  );
+} 
