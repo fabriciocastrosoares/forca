@@ -1,5 +1,5 @@
 
-export default function Jogo({palavras, palavraSorteada, setPalavraSorteada, setBotaoLetras, imagemForca}){  
+export default function Jogo({palavras, setPalavraSorteada, setBotaoLetras, imagemForca, arrayTracinhos, setArrayTracinhos, venceu}){  
 
   function sortearPalavra(){
    
@@ -7,8 +7,7 @@ export default function Jogo({palavras, palavraSorteada, setPalavraSorteada, set
 
     const palavraSorteada = [...palSort];
 
-    console.log("palavra que foi sorteada:", palavraSorteada);
-
+    setArrayTracinhos(palavraSorteada.map((_ ) => "_ "));
     
     setPalavraSorteada(palavraSorteada);  
     setBotaoLetras(false);
@@ -23,8 +22,8 @@ export default function Jogo({palavras, palavraSorteada, setPalavraSorteada, set
       </div>      
       <div className="iniciar-jogo">
         <button onClick={sortearPalavra} className="botao-iniciar">Escolher Palavra</button>
-        <h1>
-          {palavraSorteada.map((_ ) => "_ ")}
+        <h1 className= {`palavra-sorteada ${venceu}`}>
+          {arrayTracinhos}
         </h1>
       </div>
     </div>  
