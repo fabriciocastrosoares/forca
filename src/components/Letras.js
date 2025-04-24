@@ -1,4 +1,3 @@
-import { replace } from "react-router-dom";
 import forca1 from "../assets/forca1.png";
 import forca2 from "../assets/forca2.png";
 import forca3 from "../assets/forca3.png";
@@ -6,41 +5,49 @@ import forca4 from "../assets/forca4.png";
 import forca5 from "../assets/forca5.png";
 import forca6 from "../assets/forca6.png";
 
-
-export default function Letras({botaoLetras, palavraSorteada, 
+export default function Letras({botaoLetras, setBotaoLetras, palavraSorteada, 
   letraCerta, setLetraCerta, letraClicada, setLetraClicada, 
   letraErrada, setLetraErrada, setImagemForca, arrayTracinhos, 
-  setArrayTracinhos, setVenceu}){
+  setArrayTracinhos, setResultado,setTextoInput}){
     
   const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
   
   let palavraAtualizada = arrayTracinhos;
+ 
+  function venceuJogo(){
+    if(!palavraAtualizada.includes("_ ")){
+      setArrayTracinhos(palavraSorteada);
+      setResultado("verde");
+      setBotaoLetras(true);
+      setTextoInput("Você venceu!");
+    }   
+  }
+
+  function perdeuJogo(erros){
+    if(erros === 6){
+      setArrayTracinhos(palavraSorteada);
+      setResultado("vermelho");
+      setBotaoLetras(true);
+      setTextoInput("Voce perdeu!");
+    }
+  }
 
   function conferirLetras({letra} ){
-
     const novaLetraClicada = [...letraClicada, letra];
     setLetraClicada(novaLetraClicada);
 
     if(palavraSorteada.includes(letra)){
       const novaLetraCerta = [...letraCerta, letra];
       setLetraCerta(novaLetraCerta);      
-
-      for(let i = 0; i < palavraSorteada.length; i++){
-
-        if(palavraSorteada[i] === letra){
-          
-          palavraAtualizada[i] = `${letra} `;
-        }
-         setArrayTracinhos(palavraAtualizada);
-      } 
-
-        if(!palavraAtualizada.includes("_ ")){
-          setArrayTracinhos(palavraSorteada);
-          setVenceu("verde");
-          setTimeout(() => {
-            alert("PARABENSSSS!");
-          }, 100)
-        }   
+        
+      palavraSorteada.forEach((l, i) => {
+          if(l === letra){
+            palavraAtualizada[i] = letra;
+          }
+        });
+          setArrayTracinhos(palavraAtualizada);
+    
+       venceuJogo();
     } 
     
     else{
@@ -55,32 +62,25 @@ export default function Letras({botaoLetras, palavraSorteada,
       if(erros > 0 && erros <= imagensForca.length){
         setImagemForca(imagensForca[erros - 1]);
       }
-      if(erros === 6){
-        setTimeout(() => {
-          alert("Você Perdeu, Escolha Uma Nova Palavra Para Tentar Novamente!");
-        }, 100)
-
-        setArrayTracinhos(palavraSorteada);
-        setVenceu("vermelho");
-
-      }
-
+      perdeuJogo(erros, imagensForca);
     }
   } 
   
   return(
-    <div className="todas-letras">
-      {alfabeto.map((letra) => (
-        <button
-          key={letra}
-          className="escolher-letras"
-          disabled = {botaoLetras || letraClicada.includes(letra)}
-          onClick={() => conferirLetras({letra})}>
-          {letra}
-        </button>
-      ))}
-    </div>
-      
-  );
-    
+    <div className="letras-chute">
+      <div className="todas-letras">
+        {alfabeto.map((letra) => (
+          <button
+            key={letra}
+            className="escolher-letras"
+            disabled = {botaoLetras || letraClicada.includes(letra)}
+            onClick={() => conferirLetras({letra})}>
+            {letra}
+          </button>
+        ))}
+      </div>
+    </div>     
+  );   
 }
+
+
