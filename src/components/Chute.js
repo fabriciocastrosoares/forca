@@ -9,7 +9,7 @@ export default function Chute({chute, palSort, setArrayTracinhos, palavraSortead
           setResultado("verde");
           setBotaoLetras(true);
           setChute("");
-          setTextoInput("Você venceu!");
+          setTextoInput("Você Venceu!");
         }else{
           setArrayTracinhos(palavraSorteada);
           setResultado("vermelho");
@@ -31,4 +31,4 @@ export default function Chute({chute, palSort, setArrayTracinhos, palavraSortead
             <button disabled = {botaoLetras} onClick={chutar} className="botao-chutar">Tentar</button>
         </div>
     );
-}
+} 

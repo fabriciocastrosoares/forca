@@ -9,28 +9,28 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 40px auto;
+    margin: auto;
+    background-color: #e19923;
   }
-
+  
 .estado-jogo{
     width: 934px;
     height: 466.67px;
     display: flex;
     flex-direction: row;   
 }
+
 .imagem img{
-    height: 466.67px;
+    height: 900px;
+    position: relative;    
 }
 
 .iniciar-jogo{
     width: 467px;
     height: 466.67px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: end;
-    padding: 10px 0px 10px 0px;
+    display: flex;   
 }
+
 .botao-iniciar{
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
@@ -38,22 +38,26 @@
     width: 200px;
     height: 60px;
     color: #ffffff;
-    background-color:green;
+    background-color:#4592ac;
     border-radius: 8px;
     border: none;
     cursor: pointer;
+    border: 1px solid #351d00;
+    position: absolute;
+    top: 30px;
+    right: 670px;
 }
+
 .todas-letras{
-    margin-top: 50px;
     width: 664px;
     height: 91px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    
-   
+
 }
+
 .escolher-letras{
     width: 40px;
     height: 40px;
@@ -61,13 +65,17 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    margin: 0px 5px 0px 5px 
-
+    margin: 0px 5px 0px 5px;
+    border: 3px solid #351d00;
 }
+
 .palavra-sorteada{
-    font-weight: 700;
+    font-weight: 1000;
     font-size: 50px;
-    color: #000000;
+    color: #20150b;
+    position: absolute;
+    top: 400px;
+    right: 600px;
 }
 
 .verde{
@@ -83,14 +91,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 56px;
     margin-left: 100px;
+    position: absolute;
+    bottom: 130px;
+    left: 470px;
 }
 
 .letras-chute{
     margin-top: 50px;
     width: 664px;
     margin-left: 100px;
+    position: absolute;
+    bottom: 155px;
+    left: 470px;
 }
 
 .botao-chutar{
@@ -98,8 +111,9 @@
     width: 100px;
     height: 40px;
     border-radius: 3px;
-    border: 1px solid #7AA7C7;
+    border: 3px solid #351d00;
     cursor: pointer;
+    margin-top: 100px;
     margin-left: 5px;
 }
 
@@ -107,10 +121,14 @@ input{
     width: 353px;
     height: 40px;
     margin-right: 5px;
+    margin-top: 100px;
+    border-radius: 3px;
+    border: 3px solid #351d00;
+    
 }
 
 input::placeholder {
     text-align: center;
     font-family: 'Roboto', sans-serif;
-    color: #7AA7C7;
+    color: #351d00;
   }

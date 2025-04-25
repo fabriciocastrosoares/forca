@@ -38,9 +38,9 @@ export default function App() {
       textoInput = {textoInput} setTextoInput = {setTextoInput}/>
 
       <Chute palSort = {palSort} botaoLetras = {botaoLetras} textoInput = {textoInput} setChute = {setChute}
-        chute = {chute} setArrayTracinhos = {setArrayTracinhos} setResultado = {setResultado}
-        setBotaoLetras = {setBotaoLetras} setImagemForca = {setImagemForca} setTextoInput = {setTextoInput} 
-        palavraSorteada = {palavraSorteada}/>
+      chute = {chute} setArrayTracinhos = {setArrayTracinhos} setResultado = {setResultado}
+      setBotaoLetras = {setBotaoLetras} setImagemForca = {setImagemForca} setTextoInput = {setTextoInput} 
+      palavraSorteada = {palavraSorteada}/>
     </>
   );
 
